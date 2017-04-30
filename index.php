@@ -1,4 +1,5 @@
 <?php
+/*
 header('Content-Type: text/html; charset=utf-8');
 
 require 'db.php';
@@ -25,3 +26,4 @@ function sendMessage($tokken, $chat_id, $ans_message)
 
 file_put_contents("logs.txt", $message);
 
+*/
