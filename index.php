@@ -11,8 +11,7 @@ var_dump($update);
 $chat_id = $update['message']['chat']['id'];
 $user_name = $update['message']['from']['username'];
 $message = $update['message']['text'];
-$message = iconv( 'CP1251', 'UTF-8', $message);
-
+$message = mb_convert_encoding($message, "cp1251", "utf-8");
 
 
 $ans_message = 'Пока что я в разработке';
