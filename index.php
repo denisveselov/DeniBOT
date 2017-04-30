@@ -11,6 +11,7 @@ var_dump($update);
 $chat_id = $update['message']['chat']['id'];
 $user_name = $update['message']['from']['username'];
 $message = $update['message']['text'];
+$message = iconv('ANCII', 'UTF-8', $message);
 
 
 $ans_message = 'Хай Гитлер';
