@@ -13,8 +13,14 @@ $user_name = $update['message']['from']['username'];
 $message = $update['message']['text'];
 
 
+$ans_message = 'Хай Гитлер';
 
-
+switch ($message){
+    case TRUE:
+        $message = 'привет';
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
 
 
 
