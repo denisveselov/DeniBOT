@@ -1,6 +1,5 @@
 <?php
-
-header('Content-Type: text/html; charset=utf-8');
+mb_internal_encoding("UTF-8");
 
 require 'db.php';
 
@@ -11,7 +10,7 @@ var_dump($update);
 $chat_id = $update['message']['chat']['id'];
 $user_name = $update['message']['from']['username'];
 $message = $update['message']['text'];
-$message = mb_convert_encoding($message, "cp1251", "utf-8");
+$message = mb_convert_encoding([$message], "UTF-8", "cp1251");
 
 
 $ans_message = 'Пока что я в разработке';
