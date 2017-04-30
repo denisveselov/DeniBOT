@@ -13,7 +13,7 @@ $user_name = $update['message']['from']['username'];
 $message = $update['message']['text'];
 
 
-$ans_message = 'Хай Гитлер';
+$ans_message = 'Пока что я в разработке';
 
 switch ($message){
     case TRUE:
@@ -22,7 +22,12 @@ switch ($message){
         break;
 }
 
-
+switch ($message){
+    case TRUE:
+        $message = 'как ты';
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
 
 //send Messages end put to logs file
 function sendMessage($tokken, $chat_id, $ans_message)
