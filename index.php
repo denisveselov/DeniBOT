@@ -2,29 +2,89 @@
 mb_internal_encoding("UTF-8");
 
 require 'db.php';
-
-$tokken = '349744629:AAFgS16duCHVAd-gghOetwIaQUOs_KTgcbM'; //Токкен бота
-
-$update = json_decode(file_get_contents('php://input'),true);
-var_dump($update);
-$chat_id = $update['message']['chat']['id'];
-$user_name = $update['message']['from']['username'];
-$message = $update['message']['text'];
-$message = mb_convert_encoding([$message], "UTF-8", "cp1251");
+include 'tokken.php';
+include 'global_vars.php';
+include 'cases.php';
+include 'answer.php';
 
 
-$ans_message = 'Пока что я в разработке';
-
-switch ($message){
+//Logics
+switch (in_array($message,$test_case)){
     case TRUE:
-        $message = 'привет';
+        $ans_message = $test_answer;
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$hello_case)){
+    case TRUE:
+        $ans_message = $hello_answer[mt_rand(0, count($hello_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$bye_case)) {
+    case TRUE:
+        $ans_message = $bye_answer[mt_rand(0, count($bye_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$fuck_case)) {
+    case TRUE:
+        $ans_message = $fuck_answer[mt_rand(0, count($fuck_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$demand_case)) {
+    case TRUE:
+        $ans_message = $demand_answer[mt_rand(0, count($demand_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$thanks_case)) {
+    case TRUE:
+        $ans_message = $thanks_answer[mt_rand(0, count($thanks_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$total_case)) {
+    case TRUE:
+        $ans_message = $total_answer;
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$jokes_case)) {
+    case TRUE:
+        $ans_message = $jokes_answer[mt_rand(0, count($jokes_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$whatsup_case)) {
+    case TRUE:
+        $ans_message = $whatsup_answer[mt_rand(0, count($whatsup_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$cause_case)) {
+    case TRUE:
+        $ans_message = $cause_answer;
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$callback_case)) {
+    case TRUE:
+        $ans_message = $callback_answer;
+        sendMessage($tokken, $chat_id, $ans_message);
+        break;
+}
+switch (in_array($message,$anexception_case)) {
+    case TRUE:
+        $ans_message = $anexception_answer;
         sendMessage($tokken, $chat_id, $ans_message);
         break;
 }
 
-switch ($message){
+switch (in_array($message,$complaints_case)) {
     case TRUE:
-        $message = 'как ты';
+        $ans_message = $complaints_answer;
         sendMessage($tokken, $chat_id, $ans_message);
         break;
 }
@@ -36,4 +96,5 @@ function sendMessage($tokken, $chat_id, $ans_message)
 }
 
 file_put_contents("logs.txt", $message);
+
 
