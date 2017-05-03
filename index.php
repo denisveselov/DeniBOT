@@ -8,86 +8,139 @@ include 'cases.php';
 include 'answer.php';
 
 
-//Logics
-switch (in_array($message,$test_case)){
-    case TRUE:
-        $ans_message = $test_answer;
+function handler ($message, $cases, $answers, $tokken, $chat_id)
+{
+    if (in_array($message, $cases)) {
+        $ans_message = $answers[mt_rand(0, count($answers) - 1)];
         sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$hello_case)){
-    case TRUE:
-        $ans_message = $hello_answer[mt_rand(0, count($hello_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$bye_case)) {
-    case TRUE:
-        $ans_message = $bye_answer[mt_rand(0, count($bye_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$fuck_case)) {
-    case TRUE:
-        $ans_message = $fuck_answer[mt_rand(0, count($fuck_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$demand_case)) {
-    case TRUE:
-        $ans_message = $demand_answer[mt_rand(0, count($demand_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$thanks_case)) {
-    case TRUE:
-        $ans_message = $thanks_answer[mt_rand(0, count($thanks_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$total_case)) {
-    case TRUE:
-        $ans_message = $total_answer;
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$jokes_case)) {
-    case TRUE:
-        $ans_message = $jokes_answer[mt_rand(0, count($jokes_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$whatsup_case)) {
-    case TRUE:
-        $ans_message = $whatsup_answer[mt_rand(0, count($whatsup_answer) - 1)];
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$cause_case)) {
-    case TRUE:
-        $ans_message = $cause_answer;
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$callback_case)) {
-    case TRUE:
-        $ans_message = $callback_answer;
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
-}
-switch (in_array($message,$anexception_case)) {
-    case TRUE:
-        $ans_message = $anexception_answer;
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
+    }
 }
 
-switch (in_array($message,$complaints_case)) {
-    case TRUE:
-        $ans_message = $complaints_answer;
-        sendMessage($tokken, $chat_id, $ans_message);
-        break;
+
+$cases = $hello_case;
+$answers = $hello_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $bye_case;
+$answers = $bye_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $fuck_case;
+$answers = $fuck_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $thanks_case;
+$answers = $thanks_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $jokes_case;
+$answers = $jokes_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $whatsup_case;
+$answers = $whatsup_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $whatsup_good_case;
+$answers = $whatsup_good_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+$cases = $whatsup_bad_case;
+$answers = $whatsup_bad_answer;
+handler ($message, $cases, $answers, $tokken, $chat_id);
+
+
+
+//Logics
+/*
+if (in_array($message,$test_case)) {
+    $ans_message = $test_answer;
+    sendMessage($tokken, $chat_id, $ans_message);
 }
+else{
+    if (in_array($message,$hello_case)){
+        $ans_message = $hello_answer[mt_rand(0, count($hello_answer) - 1)];
+        sendMessage($tokken, $chat_id, $ans_message);
+    }
+    else{
+        if(in_array($message,$bye_case)){
+            $ans_message = $bye_answer[mt_rand(0, count($bye_answer) - 1)];
+            sendMessage($tokken, $chat_id, $ans_message);
+        }
+        else{
+            if(in_array($message,$fuck_case)){
+                $ans_message = $fuck_answer[mt_rand(0, count($fuck_answer) - 1)];
+                sendMessage($tokken, $chat_id, $ans_message);
+            }
+            else{
+                if(in_array($message,$thaks_case)){
+                    $ans_message = $thaks_answer[mt_rand(0, count($thanks_answer) - 1)];
+                    sendMessage($tokken, $chat_id, $ans_message);
+                }
+                else{
+                    if(in_array($message,$jokes_case)){
+                        $ans_message = $jokes_answer[mt_rand(0, count($jokes_answer) - 1)];
+                        sendMessage($tokken, $chat_id, $ans_message);
+                    }
+                    else{
+                        if(in_array($message,$whatsup_case)){
+                            $ans_message = $whatsup_answer[mt_rand(0, count($whatsup_answer) - 1)];
+                            sendMessage($tokken, $chat_id, $ans_message);
+                        }
+                        else{
+                            if(in_array($message,$whatsup_good_case)){
+                                $ans_message = $whatsup_good_answer[mt_rand(0, count($whatsup_good_answer) - 1)];
+                                sendMessage($tokken, $chat_id, $ans_message);
+                            }
+                            else{
+                                if(in_array($message,$whatsup_bad_case)){
+                                    $ans_message = $whatsup_bad_answer[mt_rand(0, count($whatsup_bad_answer) - 1)];
+                                    sendMessage($tokken, $chat_id, $ans_message);
+                                }
+                                else{
+                                    if(in_array($message,$start_test)){
+                                        $ans_message = $questions[1];
+                                        sendMessage($tokken, $chat_id, $ans_message);
+                                    }
+                                    else{
+                                        if{
+                                            $wotest = R::dispense('wotest');
+
+                                            $wotest->question_num = $num_quest; //запись key questuions
+                                            $wotest->answer = $message; //запись ответа на вопрос
+                                            $ans_message = $questions[$num_quest+1];//??запись в ответное сообщение следующего вопроса??
+                                            sendMessage($tokken, $chat_id, $ans_message); // отправка след вопроса
+                                        }
+                                    }
+                                    $ans_message = 'Че-то я тебя не понял';
+                                    sendMessage($tokken, $chat_id, $ans_message);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+*/
+########## Логика ветвей ###########
+/*
+ $arg1 = 'Почему?';
+ $arg2 = 'Плохо';
+ if (($message == $arg1) or ('$message[-1] == 'arg2'))
+       $answer = $arg1_ans;
+       sendMessage;
+
+
+function sender ($message, $cases, $answers, $tokken, $chat_id){
+        in_array($message,$cases)) {
+        $ans_message = $answers;
+        sendMessage($tokken, $chat_id, $ans_message);
+    }
+}
+*/
 
 //send Messages end put to logs file
 function sendMessage($tokken, $chat_id, $ans_message)
