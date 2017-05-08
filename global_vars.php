@@ -10,6 +10,14 @@ $message = $update['message']['text'];
 $message = mb_strtolower($message);
 
 
+/*
+//Inline type var
+$callback_query = $update['callback_query'];
+$message = $callback_query['data'];
+$message_id = ['callback_query']['message']['message_id'];
+$chat_id = $callback_query['message']['chat']['id'];
+*/
+
 //create to DB
 $usermsg = R::dispense('usermsg');
 $usermsg->chat_id = $chat_id;
