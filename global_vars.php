@@ -20,3 +20,5 @@ $usermsg->user_name = $user_name;
 $usermsg->message = $message;
 $id = R::store($usermsg);
 
+
+$api_bot = 'https://api.telegram.org/bot';
